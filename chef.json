@@ -9,7 +9,7 @@
      "epel_release": "6-7"
   },
   "run_list": [ 
-    "recipe[chef-server::rubygems-install]",
-    "recipe[chef-server::nginx-proxy]"
+    "recipe[chef-server::rubygems-install]"
+    #"recipe[chef-server::nginx-proxy]"
    ]
 }
