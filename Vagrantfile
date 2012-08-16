@@ -4,11 +4,11 @@ Vagrant::Config.run do |config|
   config.vm.host_name = "chefserver"
 
   config.vm.customize ["modifyvm", :id, "--memory", "1024"]
-  config.vm.network :hostonly, "33.33.33.3"
+  #config.vm.network :hostonly, "33.33.33.3"
 
   config.vm.forward_port 4000, 4000
   config.vm.forward_port 4040, 4040
-  config.vm.forward_port 443, 443
+  config.vm.forward_port 443, 4433
 
   #config.vm.provision :chef_solo do |chef|
   #  chef.cookbooks_path = "cookbooks"

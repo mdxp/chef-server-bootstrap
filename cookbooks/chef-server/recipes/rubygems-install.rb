@@ -209,7 +209,11 @@ when "init"
     end
 
     file "/etc/#{conf_dir}/#{svc}" do
-      content conf_content
+      if svc == "chef-server" &&  node['chef_server']['workers'] != 1
+        content conf_content + "OPTIONS=\"-c #{node['chef_server']['workers']}\"\n"
+      else
+        content conf_content
+      end
       mode 0644
     end
 

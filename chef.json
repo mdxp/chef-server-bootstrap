@@ -2,14 +2,17 @@
   "chef_server": {
     "server_url": "http://localhost:4000",
     "webui_enabled": true,
-    "workers": 8,
+    "workers": 6,
     "init_style": "init"
   },
   "yum": {
      "epel_release": "6-7"
   },
+  "nginx": {
+    "user": "nginx"
+  },
   "run_list": [ 
-    "recipe[chef-server::rubygems-install]"
-    #"recipe[chef-server::nginx-proxy]"
+    "recipe[chef-server::rubygems-install]",
+    "recipe[chef-server::nginx-proxy]"
    ]
 }

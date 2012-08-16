@@ -26,6 +26,16 @@ directory node[:nginx][:log_dir] do
   action :create
 end
 
+if platform?("centos","redhat","fedora")
+%w{ sites-available sites-enabled }.each do |dir|
+  directory "#{node[:nginx][:dir]}/#{dir}" do
+    owner "root"
+    group "root"
+    mode "0755"
+  end
+end
+end 
+
 %w{nxensite nxdissite}.each do |nxscript|
   template "/usr/sbin/#{nxscript}" do
     source "#{nxscript}.erb"
