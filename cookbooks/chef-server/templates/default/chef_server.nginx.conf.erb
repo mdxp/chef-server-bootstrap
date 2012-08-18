@@ -1,5 +1,7 @@
 upstream chef_server {
-  server 127.0.0.1:<%= node['chef_server']['api_port'] %> fail_timeout=0;
+  <% for port in node['chef_server']['api_port'].to_i..node['chef_server']['api_port'].to_i+node['chef_server']['workers'].to_i %>
+    server 127.0.0.1:<%= port %> fail_timeout=0;
+  <% end %>
 }
 
 upstream chef_server_webui {
