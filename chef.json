@@ -13,6 +13,7 @@
   },
   "run_list": [ 
     "recipe[chef-server::rubygems-install]",
-    "recipe[chef-server::nginx-proxy]"
+    "recipe[chef-server::nginx-proxy]",
+    "recipe[chef-server::cron]"
    ]
 }
